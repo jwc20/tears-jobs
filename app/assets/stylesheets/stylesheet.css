@@ -14,7 +14,7 @@
  *= require_self
  */
 
-.center {
+ .center {
     box-sizing: content-box;
     max-inline-size: 100ch;
     margin-inline: auto;

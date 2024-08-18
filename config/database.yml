@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: tears_jobs_production
-  username: tears_jobs
-  password: <%= ENV["TEARS_JOBS_DATABASE_PASSWORD"] %>
+  database: postgres
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: tears_jobs_production
+  # username: tears_jobs
+  # password: <%= ENV["TEARS_JOBS_DATABASE_PASSWORD"] %>
