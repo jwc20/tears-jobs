@@ -2,13 +2,15 @@
     <h1>Bunch of jobs</h1>
     <table class="job-listing-table">
         <thead>
+            <th>ID</th>
             <th>Company Name</th>
             <th>Job Title</th>
             <th>Job Link</th>
         </thead>
         <tbody>
-            <% @job_listings.each do |job_listing| %>
+            <% @job_listings.reverse_each do |job_listing| %>
             <tr>
+                <td><%= job_listing.id %></td>
                 <td><%= job_listing.company_name %></td>
                 <td style="text-align: center"><%= job_listing.job_title %></td>
                 <td style="text-align: center">
