@@ -16,9 +16,18 @@
 
 .center {
     box-sizing: content-box;
-    max-inline-size: 60ch;
+    max-inline-size: 100ch;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.job-listing-table {
+}
+
+table,
+th,
+td {
+    border: 1px solid;
 }

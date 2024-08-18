@@ -1,21 +1,21 @@
-
 <div class="center">
-<table>
-<thead>
-  <th>Job Title</th>
-  <th>Job Link</th>
-</thead>
-<tbody>
-  <% @job_listings.each do |job_listing| %>
-    <tr>
-      <td>
-        <%= job_listing.job_title %>
-      </td>
-      <td style="text-align: center; ">
-        <%= link_to "Link", job_listing.job_link %>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
+    <h1>Bunch of jobs</h1>
+    <table class="job-listing-table">
+        <thead>
+            <th>Company Name</th>
+            <th>Job Title</th>
+            <th>Job Link</th>
+        </thead>
+        <tbody>
+            <% @job_listings.each do |job_listing| %>
+            <tr>
+                <td><%= job_listing.company_name %></td>
+                <td style="text-align: center"><%= job_listing.job_title %></td>
+                <td style="text-align: center">
+                    <%= link_to "Link", job_listing.job_link %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
