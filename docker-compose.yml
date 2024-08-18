@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "10524:10524"
+    environment:
+      RAILS_ENV: development
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY} # Pass the master key as an environment variable
+      DATABASE_URL: ${DATABASE_URL}
+    volumes:
+      - .:/rails # Mount the current directory inside the container for persistent storage
+    networks:
+      - app-network
+
+# No need for a db service, as Supabase is used instead.
+
+networks:
+  app-network:
