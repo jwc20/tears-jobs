@@ -1,8 +1,5 @@
 class JobListingsController < ApplicationController
-
-
   def index
-    render json: JobListing.all
+      @job_listings = JobListing.all
   end
-
 end
