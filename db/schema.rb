@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_18_054957) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_23_173000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_18_054957) do
   enable_extension "supabase_vault"
   enable_extension "uuid-ossp"
 
+  create_table "job_descriptions", force: :cascade do |t|
+    t.text "description"
+    t.integer "job_id"
+    t.integer "job_skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "job_listings", force: :cascade do |t|
     t.string "job_title"
     t.string "job_link"
@@ -40,6 +48,30 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_18_054957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company_name"
+  end
+
+  create_table "job_skills", force: :cascade do |t|
+    t.text "skills", default: [], array: true
+    t.integer "job_description_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.text "job_title"
+    t.text "job_url"
+    t.integer "job_description_id"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scraped_li_job_listings", id: false, force: :cascade do |t|
+    t.text "company_name"
+    t.text "job_title"
+    t.text "job_link"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "temp", id: false, force: :cascade do |t|
