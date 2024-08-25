@@ -82,6 +82,9 @@ production:
   <<: *default
   database: postgres
   url: <%= ENV['DATABASE_URL'] %>
+  prepared_statements: false
+
+
   # database: tears_jobs_production
   # username: tears_jobs
   # password: <%= ENV["TEARS_JOBS_DATABASE_PASSWORD"] %>
