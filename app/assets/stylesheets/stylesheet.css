@@ -3,7 +3,7 @@
     --crust: #303446;
     --mantle: #292c3c;
     --base: #414559;
-    --surface0: #51576d;
+    --surface0: #414559;
     --surface1: #6c7086;
     --surface2: #7c7f93;
     --overlay0: #8c8fa1;
@@ -36,7 +36,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: var(--mantle);
-    border-radius: 12px;
+    padding-top: 5px !important;
     padding: 20px;
     color: var(--text);
 }
@@ -47,25 +47,32 @@ h1 {
 
 table {
     table-layout: fixed;
-    width: 100%;
-    border: 1px solid var(--surface0);
-    margin-top: 20px;
     border-collapse: collapse;
-    border-radius: 20px;
+}
+
+tbody {
     background-color: var(--surface0);
 }
 
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border: 1px solid var(--surface1);
     color: var(--text);
 }
 
-th {
-    background-color: var(--surface2);
-    color: var(--lavender);
+.link {
+    width: 55px;
 }
+
+.scraped-at {
+    width: 140px;
+}
+
+/* th { */
+/*     background-color: var(--surface2); */
+/*     color: var(--lavender); */
+/* } */
 
 tr:nth-child(even) {
     background-color: var(--mantle);
@@ -96,6 +103,14 @@ a:hover {
     padding: 5px 10px;
     border-radius: 5px;
     background-color: var(--surface1);
+    color: var(--text);
+}
+
+.pagination em {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--surface0);
     color: var(--text);
 }
 

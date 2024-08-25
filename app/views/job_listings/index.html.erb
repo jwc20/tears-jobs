@@ -3,7 +3,6 @@
   <table>
     <thead>
       <tr>
-        <th>No.</th>
         <th>Company Name</th>
         <th>Job Title</th>
         <th>Job Link</th>
@@ -13,16 +12,12 @@
     <tbody>
       <% @job_listings.each_with_index do |job_listing, index| %>
       <tr>
-        <th scope="row"><%= (params[:page].to_i - 1) * 10 + index + 1 %></th>
         <td><%= job_listing.company_name %></td>
         <td style="text-align: center"><%= job_listing.job_title %></td>
-        <td style="text-align: center">
+        <td style="text-align: center" class="link">
           <%= link_to "Link", job_listing.job_link %>
         </td>
-        
-        <td><%= job_listing.created_at.localtime.strftime('%B %d, %Y %I:%M %p') %></td>
-
-
+        <td class="scraped-at"><%= job_listing.created_at.localtime.strftime('%B %d, %Y %I:%M %p') %></td>
       </tr>
       <% end %>
     </tbody>
