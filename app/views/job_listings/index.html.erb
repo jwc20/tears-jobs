@@ -1,23 +1,32 @@
 <div class="center">
-    <h1>Bunch of jobs</h1>
-    <table class="job-listing-table">
-        <thead>
-            <th>ID</th>
-            <th>Company Name</th>
-            <th>Job Title</th>
-            <th>Job Link</th>
-        </thead>
-        <tbody>
-            <% @job_listings.reverse_each do |job_listing| %>
-            <tr>
-                <td><%= job_listing.id %></td>
-                <td><%= job_listing.company_name %></td>
-                <td style="text-align: center"><%= job_listing.job_title %></td>
-                <td style="text-align: center">
-                    <%= link_to "Link", job_listing.job_link %>
-                </td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+  <h1>Tech. Entry and Remote Jobs</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Company Name</th>
+        <th>Job Title</th>
+        <th>Job Link</th>
+        <th>Scraped At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @job_listings.each_with_index do |job_listing, index| %>
+      <tr>
+        <th scope="row"><%= (params[:page].to_i - 1) * 10 + index + 1 %></th>
+        <td><%= job_listing.company_name %></td>
+        <td style="text-align: center"><%= job_listing.job_title %></td>
+        <td style="text-align: center">
+          <%= link_to "Link", job_listing.job_link %>
+        </td>
+        
+        <td><%= job_listing.created_at.localtime.strftime('%B %d, %Y %I:%M %p') %></td>
+
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="pagination"><%= will_paginate @job_listings %></div>
 </div>
