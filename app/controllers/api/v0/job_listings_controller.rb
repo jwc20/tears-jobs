@@ -1,6 +1,8 @@
 module Api
   module V0
     class JobListingsController < ApplicationController
+      include Pagy::Backend
+
       def index
         render json: JobListing.all
       end
