@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { fetchData } from '@/api/data'
 import { Button } from '@/components/button'
-
+import { Heading } from '@/components/heading'
 import {
   Table,
   TableBody,
@@ -20,7 +20,7 @@ export default async function Jobs ({ searchParams }) {
   const currentPage = parseInt(searchParams.page) || 1
   const data = await fetchData(`api/v0/job_listings?page=${currentPage}`)
   const jobs = data['data']
-  const totalPages = data['count']
+  const totalPages = Math.ceil(data['count'] / 10)
 
   return (
     <>
@@ -35,9 +35,9 @@ export default async function Jobs ({ searchParams }) {
         `}
       </style>
 
-      {/* <div className='flex items-end justify-between gap-4'>
+      <div className='flex items-end justify-between gap-4'>
         <Heading>Jobs</Heading>
-      </div> */}
+      </div>
 
       <Table className='mt-8 [--gutter:theme(spacing.6)] lg:[--gutter:theme(spacing.10)]'>
         <TableHead>
@@ -76,7 +76,7 @@ export default async function Jobs ({ searchParams }) {
         <span>
           Page {currentPage} of {totalPages}
         </span>
-        <Link href={`?page=${currentPage + 1}`} passHref>
+        <Link href={`?page=${currentPage + 1 >= totalPages ? totalPages : totalPages}`} passHref>
           <Button>Next</Button>
         </Link>
       </div>
