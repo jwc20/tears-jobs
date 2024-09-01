@@ -1,37 +1,26 @@
-import { fetchData } from '@/api/data';
-import { Heading } from '@/components/heading';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/table';
-import moment from 'moment-timezone';
-
-
+import Link from 'next/link'
+import { fetchData } from '@/api/data'
+import { Button } from '@/components/button'
+import { Heading } from '@/components/heading'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from '@/components/table'
+import moment from 'moment-timezone'
 
 export const metadata = {
-  title: 'Jobs',
-};
+  title: 'Jobs'
+}
 
-let current_url = 'api/v0/job_listings';
-
-export default async function Jobs() {
-  const data = await fetchData(current_url);
-  const jobs = data['data'];
-  const prev_url = data['prev_url'];
-  const next_url = data['next_url'];
-  const currentPage = data['page_url'];
-  const totalPages = data['count'];
-
-  const handleNextPage = async () => {
-    if (next_url) {
-      current_url = next_url;
-      window.location.reload();
-    }
-  };
-
-  const handlePreviousPage = async () => {
-    if (prev_url) {
-      current_url = prev_url;
-      window.location.reload();
-    }
-  };
+export default async function Jobs ({ searchParams }) {
+  const currentPage = parseInt(searchParams.page) || 1
+  const data = await fetchData(`api/v0/job_listings?page=${currentPage}`)
+  const jobs = data['data']
+  const totalPages = data['count']
 
   return (
     <>
@@ -46,11 +35,11 @@ export default async function Jobs() {
         `}
       </style>
 
-      <div className="flex items-end justify-between gap-4">
+      {/* <div className='flex items-end justify-between gap-4'>
         <Heading>Jobs</Heading>
-      </div>
+      </div> */}
 
-      <Table className="mt-8 [--gutter:theme(spacing.6)] lg:[--gutter:theme(spacing.10)]">
+      <Table className='mt-8 [--gutter:theme(spacing.6)] lg:[--gutter:theme(spacing.10)]'>
         <TableHead>
           <TableRow>
             <TableHeader>ID</TableHeader>
@@ -60,34 +49,37 @@ export default async function Jobs() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {jobs.map((job) => (
+          {jobs.map(job => (
             <TableRow key={job.id} href={job.job_link} title={`Job #${job.id}`}>
               <TableCell>{job.id}</TableCell>
-              <TableCell className="max-width-column">{job.company_name}</TableCell>
-              <TableCell className="max-width-column">{job.job_title}</TableCell>
-              <TableCell className="text-zinc-500">
-                {moment.utc(job.created_at).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm:ss')}
+              <TableCell className='max-width-column'>
+                {job.company_name}
+              </TableCell>
+              <TableCell className='max-width-column'>
+                {job.job_title}
+              </TableCell>
+              <TableCell className='text-zinc-500'>
+                {moment
+                  .utc(job.created_at)
+                  .tz(moment.tz.guess())
+                  .format('YYYY-MM-DD HH:mm:ss')}
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
 
-      <div className="flex justify-between mt-4">
-        <button
-          disabled={!prev_url}
-          className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <span>Page {currentPage} of {totalPages}</span>
-        <button
-          disabled={!next_url}
-          className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
-        >
-          Next
-        </button>
+      <div className='mt-4 flex justify-between'>
+        <Link href={`?page=${currentPage - 1 <= 0 ? 1 : currentPage - 1}`} passHref>
+          <Button>Previous</Button>
+        </Link>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <Link href={`?page=${currentPage + 1}`} passHref>
+          <Button>Next</Button>
+        </Link>
       </div>
     </>
-  );
+  )
 }
