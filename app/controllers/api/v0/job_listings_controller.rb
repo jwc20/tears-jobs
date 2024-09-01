@@ -6,7 +6,7 @@ module Api
       def index
         # render json: JobListing.all
         #   def index
-        @pagy, @job_listings = pagy(JobListing.order(created_at: :desc), items: 15)
+        @pagy, @job_listings = pagy(JobListing.order(id: :desc))
         render json: { data: @job_listings, **pagy_metadata(@pagy) } # TODO: Use serializer
       end
 
