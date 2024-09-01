@@ -1,5 +1,3 @@
-
-// JobsTable.jsx
 'use client'
 
 import {
