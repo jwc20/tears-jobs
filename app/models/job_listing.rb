@@ -1,2 +1,0 @@
-class JobListing < ApplicationRecord
-end
