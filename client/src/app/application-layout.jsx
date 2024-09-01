@@ -169,7 +169,7 @@ export function ApplicationLayout({ events, children }) {
 
               <SidebarItem href="https://github.com/jwc20/tears-jobs">
                 <SparklesIcon />
-                <SidebarLabel>Changelog</SidebarLabel>
+                <SidebarLabel>Github</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
           </SidebarBody>
