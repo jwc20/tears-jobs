@@ -5,8 +5,8 @@ import { ApplicationLayout } from './application-layout'
 
 export const metadata = {
   title: {
-    template: '%s - Catalyst',
-    default: 'Catalyst',
+    template: '%s - Tears',
+    default: 'Tears Jobs',
   },
   description: '',
 }
