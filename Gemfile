@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
 
+
+gem 'foreman'
+
 gem "dotenv-rails", groups: [ :development, :test ]
 
 gem 'will_paginate', '~> 4.0'

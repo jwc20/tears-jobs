@@ -1,0 +1,3 @@
+web: PORT=4000 npm run start --prefix client
+api: PORT=3013 rails s
+
