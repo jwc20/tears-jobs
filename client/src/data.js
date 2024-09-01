@@ -1,3 +1,16 @@
+const API_URL = process.env.RAILS_API_URL;
+
+export async function getJobs() {
+    const response = await fetch(`${API_URL}/api/v0/job_listings?page=${currentPage}`);
+    const data = await response.json();
+    // setJobListings(data.job_listings);
+    // setTotalPages(data.total_pages);
+
+    return data.job_listings;
+}
+
+
+
 export async function getOrder(id) {
   return (await getOrders()).find((order) => order.id.toString() === id)
 }
