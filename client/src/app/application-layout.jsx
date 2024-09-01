@@ -73,23 +73,25 @@ export function ApplicationLayout({ events, children }) {
 
   return (
     <SidebarLayout
-      navbar={
-        <Navbar>
-          <NavbarSpacer />
-          <NavbarSection>
-            <Dropdown>
-              <DropdownButton as={NavbarItem}>
-                <Avatar src="/users/erica.jpg" square />
-              </DropdownButton>
-              <AccountDropdownMenu anchor="bottom end" />
-            </Dropdown>
-          </NavbarSection>
-        </Navbar>
-      }
+    //   navbar={
+    //     <Navbar>
+    //       <NavbarSpacer />
+    //       <NavbarSection>
+    //         <Dropdown>
+    //           <DropdownButton as={NavbarItem}>
+    //             <Avatar src="/users/erica.jpg" square />
+    //           </DropdownButton>
+    //           <AccountDropdownMenu anchor="bottom end" />
+    //         </Dropdown>
+    //       </NavbarSection>
+    //     </Navbar>
+    //   }
       sidebar={
         <Sidebar>
           <SidebarHeader>
-            <Dropdown>
+          {/* <Avatar src="/teams/catalyst.svg" /> */}
+          <SidebarLabel>Tears Jobs</SidebarLabel>
+            {/* <Dropdown>
               <DropdownButton as={SidebarItem}>
                 <Avatar src="/teams/catalyst.svg" />
                 <SidebarLabel>Catalyst</SidebarLabel>
@@ -115,7 +117,7 @@ export function ApplicationLayout({ events, children }) {
                   <DropdownLabel>New team&hellip;</DropdownLabel>
                 </DropdownItem>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </SidebarHeader>
 
           <SidebarBody>
@@ -124,7 +126,15 @@ export function ApplicationLayout({ events, children }) {
                 <HomeIcon />
                 <SidebarLabel>Home</SidebarLabel>
               </SidebarItem>
-              <SidebarItem href="/events" current={pathname.startsWith('/events')}>
+
+              <SidebarItem href="/jobs" current={pathname.startsWith('/jobs')}>
+                <Square2StackIcon />
+                <SidebarLabel>Jobs</SidebarLabel>
+              </SidebarItem>
+
+
+
+              {/* <SidebarItem href="/events" current={pathname.startsWith('/events')}>
                 <Square2StackIcon />
                 <SidebarLabel>Events</SidebarLabel>
               </SidebarItem>
@@ -135,33 +145,36 @@ export function ApplicationLayout({ events, children }) {
               <SidebarItem href="/settings" current={pathname.startsWith('/settings')}>
                 <Cog6ToothIcon />
                 <SidebarLabel>Settings</SidebarLabel>
-              </SidebarItem>
+              </SidebarItem> */}
             </SidebarSection>
 
-            <SidebarSection className="max-lg:hidden">
+            {/* <SidebarSection className="max-lg:hidden">
               <SidebarHeading>Upcoming Events</SidebarHeading>
               {events.map((event) => (
                 <SidebarItem key={event.id} href={event.url}>
                   {event.name}
                 </SidebarItem>
               ))}
-            </SidebarSection>
+            </SidebarSection> */}
 
             <SidebarSpacer />
 
             <SidebarSection>
-              <SidebarItem href="#">
+
+              {/* <SidebarItem href="#">
                 <QuestionMarkCircleIcon />
                 <SidebarLabel>Support</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="#">
+              </SidebarItem> */}
+
+
+              <SidebarItem href="https://github.com/jwc20/tears-jobs">
                 <SparklesIcon />
                 <SidebarLabel>Changelog</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
           </SidebarBody>
 
-          <SidebarFooter className="max-lg:hidden">
+          {/* <SidebarFooter className="max-lg:hidden">
             <Dropdown>
               <DropdownButton as={SidebarItem}>
                 <span className="flex min-w-0 items-center gap-3">
@@ -177,7 +190,7 @@ export function ApplicationLayout({ events, children }) {
               </DropdownButton>
               <AccountDropdownMenu anchor="top start" />
             </Dropdown>
-          </SidebarFooter>
+          </SidebarFooter> */}
         </Sidebar>
       }
     >
