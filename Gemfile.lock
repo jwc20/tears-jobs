@@ -104,6 +104,7 @@ GEM
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
+    foreman (0.88.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -277,6 +278,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  foreman
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)
