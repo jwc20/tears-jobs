@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { fetchData } from '@/api/data'
 import { Button } from '@/components/button'
-import { Heading } from '@/components/heading'
+
 import {
   Table,
   TableBody,
