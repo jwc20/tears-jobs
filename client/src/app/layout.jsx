@@ -22,6 +22,17 @@ export default async function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0N1F9HW5YP"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-0N1F9HW5YP');
+          `}
+        </script>
       </head>
       <body>
         <ApplicationLayout events={events}>{children}</ApplicationLayout>
