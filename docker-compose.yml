@@ -1,20 +1,35 @@
 services:
-  app:
+  rails_app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "10535:10535"
+      - "10524:10524"
     environment:
       RAILS_ENV: production
-      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY} # Pass the master key as an environment variable
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
       DATABASE_URL: ${DATABASE_URL}
     volumes:
-      - .:/rails # Mount the current directory inside the container for persistent storage
+      - .:/rails
+      - ./config/master.key:/rails/config/master.key:ro
     networks:
       - app-network
 
-# No need for a db service, as Supabase is used instead.
+  nextjs_app:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "10222:10222"
+    environment:
+      NODE_ENV: production
+      PORT: 10222
+      API_URL: http://rails_app:10524
+    networks:
+      - app-network
+    depends_on:
+      - rails_app
 
 networks:
   app-network:
+    driver: bridge
