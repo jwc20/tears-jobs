@@ -27,7 +27,6 @@ body {
     color: var(--text);
     font-family: 'Inter', sans-serif;
 }
-
 .center {
     box-sizing: content-box;
     max-inline-size: 100ch;
@@ -48,6 +47,8 @@ h1 {
 table {
     table-layout: fixed;
     border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
 }
 
 tbody {
@@ -55,14 +56,33 @@ tbody {
 }
 
 th, td {
-    padding: 10px;
-    text-align: center;
+    padding: 12px;
+    text-align: left;
     border: 1px solid var(--surface1);
     color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+/* th {
+    background-color: var(--surface2);
+    color: var(--lavender);
+} */
+
+tr:nth-child(even) {
+    background-color: var(--mantle);
+}
+
+tr:hover {
+    background-color: var(--surface1);
 }
 
 .link {
-    width: 55px;
+    text-align: center;
+    width: 55px; /* Reduced width for the link column */
+    max-width: 55px; /* Ensure it doesn't expand beyond 55px */
 }
 
 .scraped-at {
@@ -99,21 +119,29 @@ a:hover {
 }
 
 .pagination a {
-    margin: 0 5px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: var(--surface1);
+    /* margin: 0 5px; */
+    padding: 5px 5px;
+    border-radius: 3px;
+    /* background-color: var(--surface1); */
     color: var(--text);
 }
 
 .pagination em {
-    margin: 0 5px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: var(--surface0);
+    /* margin: 0 5px; */
+    padding: 5px 5px;
+    border-radius: 3px;
+    /* background-color: var(--surface0); */
     color: var(--text);
 }
 
 .pagination a:hover {
     background-color: var(--surface2);
+}
+
+.previous_page {
+    padding: 5px;
+}
+
+.next_page {
+    padding: 5px;
 }

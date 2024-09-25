@@ -4,6 +4,6 @@ class JobListingsController < ApplicationController
 #   end
 
     def index
-        @job_listings = JobListing.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+        @job_listings = JobListing.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
     end
 end
