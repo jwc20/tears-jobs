@@ -1,0 +1,147 @@
+/* Catppuccin Frappe Theme */
+:root {
+    --crust: #303446;
+    --mantle: #292c3c;
+    --base: #414559;
+    --surface0: #414559;
+    --surface1: #6c7086;
+    --surface2: #7c7f93;
+    --overlay0: #8c8fa1;
+    --overlay1: #9ca0b0;
+    --overlay2: #acb0be;
+    --subtext0: #b5bfe2;
+    --subtext1: #bac2de;
+    --text: #c6d0f5;
+    --lavender: #babbf1;
+    --red: #e78284;
+    --green: #a6d189;
+    --yellow: #e5c890;
+    --blue: #8caaee;
+    --peach: #ef9f76;
+    --maroon: #ea999c;
+    --pink: #f4b8e4;
+}
+
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+}
+.center {
+    box-sizing: content-box;
+    max-inline-size: 100ch;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--mantle);
+    padding-top: 5px !important;
+    padding: 20px;
+    color: var(--text);
+}
+
+h1 {
+    color: var(--lavender);
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+tbody {
+    background-color: var(--surface0);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--surface1);
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+/* th {
+    background-color: var(--surface2);
+    color: var(--lavender);
+} */
+
+tr:nth-child(even) {
+    background-color: var(--mantle);
+}
+
+tr:hover {
+    background-color: var(--surface1);
+}
+
+.link {
+    text-align: center;
+    width: 55px; /* Reduced width for the link column */
+    max-width: 55px; /* Ensure it doesn't expand beyond 55px */
+}
+
+.scraped-at {
+    width: 140px;
+}
+
+/* th { */
+/*     background-color: var(--surface2); */
+/*     color: var(--lavender); */
+/* } */
+
+tr:nth-child(even) {
+    background-color: var(--mantle);
+}
+
+tr:hover {
+    background-color: var(--surface1);
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Customize the pagination controls if they exist */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    /* margin: 0 5px; */
+    padding: 5px 5px;
+    border-radius: 3px;
+    /* background-color: var(--surface1); */
+    color: var(--text);
+}
+
+.pagination em {
+    /* margin: 0 5px; */
+    padding: 5px 5px;
+    border-radius: 3px;
+    /* background-color: var(--surface0); */
+    color: var(--text);
+}
+
+.pagination a:hover {
+    background-color: var(--surface2);
+}
+
+.previous_page {
+    padding: 5px;
+}
+
+.next_page {
+    padding: 5px;
+}
