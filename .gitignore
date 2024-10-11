@@ -4,8 +4,7 @@
 # belong in git's global ignore instead:
 # `$XDG_CONFIG_HOME/git/ignore` or `~/.config/git/ignore`
 
-
-scratch.md
+.DS_Store
 
 # Ignore bundler config.
 /.bundle
@@ -31,8 +30,6 @@ scratch.md
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-
-/public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
