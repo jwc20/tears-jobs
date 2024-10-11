@@ -7,3 +7,4 @@ class ChangeJobSkills < ActiveRecord::Migration[7.2]
       change_column :job_skills, :skills, :text
     end
   end
+
