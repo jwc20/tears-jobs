@@ -4,3 +4,8 @@
 
 A website for finding software engineering jobs.
 
+[2024-11-05]
+
+- New Flask version
+- 
+[Link](https://tearsjobs.careers)
